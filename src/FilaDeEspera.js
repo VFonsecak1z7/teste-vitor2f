@@ -6,6 +6,7 @@
 class FilaDeEspera {
     constructor() {
         // TODO: Implementar o construtor para inicializar a fila de hóspedes (array vazio)
+        this.waitLine = [];
     }
 
     /**
@@ -14,6 +15,10 @@ class FilaDeEspera {
      */
     adicionar(hospede) {
         // TODO: Implementar a lógica para adicionar o hóspede à fila
+        // Chamei o metodo `.push()` a qual empurra o elemento desejado, 
+        // que no caso eh nosso objeto hospede para o final da fila de espera
+        this.waitLine.push(hospede);
+        console.log('Hospede adicionado a fila');
     }
 
     /**
@@ -23,6 +28,13 @@ class FilaDeEspera {
     atender() {
         // TODO: Implementar a lógica para remover e retornar o primeiro hóspede da fila
         // Se a fila estiver vazia, retornar a mensagem: 'Nenhum hóspede na fila de espera'
+        if(!this.waitLine.estaVazia()){
+            throw new Error('Nenhum hóspede na fila de espera')
+        }else{
+            const hospede = this.waitLine.shift(); //Remove e retorna o primeiro hóspede
+            console.log('Hospede atendido');
+            return hospede;
+        }
     }
 
     /**
@@ -32,6 +44,11 @@ class FilaDeEspera {
     proximo() {
         // TODO: Implementar a lógica para retornar o próximo hóspede sem removê-lo da fila
         // Se a fila estiver vazia, retornar a mensagem: 'Nenhum hóspede na fila'
+        if(this.estaVazia()){
+            throw new Error('Nenhum hóspede na fila de espera')
+        }else{
+            return this.waitLine[0] //Retorna o primeiro sem remover
+        }
     }
 
     /**
@@ -39,7 +56,8 @@ class FilaDeEspera {
      * @returns {boolean} - `true` se a fila estiver vazia, `false` caso contrário.
      */
     estaVazia() {
-        // TODO: Implementar a lógica para verificar se a fila está vazia
+        // TODO: Implementar a lógica para verificar se a fila está vaziar
+        return this.waitLine.length === 0;
     }
 }
 
