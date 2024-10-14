@@ -9,6 +9,8 @@ class Reserva {
      */
     constructor(quarto, data) {
         // TODO: Implementar o construtor para inicializar as propriedades quarto e data
+        this.quarto = quarto;
+        this.data = data;
     }
 
     /**
@@ -17,6 +19,7 @@ class Reserva {
      */
     getQuarto() {
         // TODO: Implementar o método para retornar o número do quarto reservado
+        return this.quarto;
     }
 
     /**
@@ -25,6 +28,7 @@ class Reserva {
      */
     getData() {
         // TODO: Implementar o método para retornar a data da reserva
+        return this.data;
     }
 }
 
